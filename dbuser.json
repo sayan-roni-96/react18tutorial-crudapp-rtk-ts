@@ -1,13 +1,6 @@
 {
   "user": [
     {
-      "username": "Michel Shene",
-      "email": "mike@codename.com",
-      "phone": "7894-5284-12",
-      "active": false,
-      "id": 6
-    },
-    {
       "username": "Niraj Modi",
       "email": "niraj@yahoo.com",
       "phone": "9875641258",

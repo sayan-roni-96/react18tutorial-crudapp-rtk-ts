@@ -1,0 +1,22 @@
+{
+  "worker": [
+        {
+      "workername": "Roni",
+      "age": "25",
+      "gender": "female",
+      "favplayer": "Messi",
+      "performance": "Good",
+      "interest": [
+        {
+          "value": "drawing",
+          "label": "Drawing"
+        },
+        {
+          "value": "swimming",
+          "label": "Swimming"
+        }
+      ],
+      "id": "48589f20-4f94-4879-af1f-ac40b00d37ea"
+    }
+    ]
+}
