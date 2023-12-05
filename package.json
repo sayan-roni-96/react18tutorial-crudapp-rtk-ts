@@ -30,8 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "nom": "concurrently \"npm start\" \"json-server --watch dbuser.json --port 3305\"",
-    "dev": "concurrently \"react-scripts start\" \"json-server --watch dbuser.json --port 3305\" \"json-server --worker.json --port 3205\"",
     "new": "concurrently \"npm start\" \"json-server --watch worker.json --port 3205\"",
+    "dev": "concurrently \"npm start\" \"npm run nom\" \"npm run new\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
