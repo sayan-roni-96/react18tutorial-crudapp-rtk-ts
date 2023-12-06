@@ -6,6 +6,7 @@ import UserList from './pages/crud_json_server/UserList';
 import UserDetails from './pages/crud_json_server/UserDetails';
 import WorkerList from './pages/crud_worker_json_server/WorkerList';
 import MenuBar from './pages/Navmenu/MenuBar';
+import WorkerDetails from './pages/crud_worker_json_server/WorkerDetails';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/" element={<UserList />} />
         <Route path="/userdetails/:vid" element={<UserDetails />} />
         <Route path="/workerlist" element={<WorkerList />} />
-
+        <Route path="/workerdetails/:vid" element={<WorkerDetails />} />
       </Routes> }
     </div>
   );

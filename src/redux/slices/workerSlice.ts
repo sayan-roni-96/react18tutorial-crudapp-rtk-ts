@@ -1,18 +1,18 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UserModel } from "../models/userModel";
+//import { UserModel } from "../models/userModel";
 import { WorkerModel } from "../models/workerModel";
-import { getAllWorker } from "../actions/workerAction";
+import { deleteOneWorker, getAllWorker, getSingleWorker } from "../actions/workerAction";
 
 export interface initialStateInterface {
-    getAllWorker: WorkerModel[];
-//   singleUser: UserModel;
-     message: string;
-     isLoading?: boolean;
+  allWorker: WorkerModel[];
+  singleWorker:WorkerModel,
+  message: string;
+  isLoading?: boolean;
 }
 
 const initialState: initialStateInterface = {
-    getAllWorker: [],
-    //  singleUser: {} as  UserModel,
+      allWorker: [],
+      singleWorker: {} as  WorkerModel,
       message: "",
       isLoading: false,
 };
@@ -23,7 +23,7 @@ const workerSlice = createSlice({
 
   reducers: {},
   extraReducers: function (builder) {
-    // For Get All Users
+    // For Get All Worker
     builder.addCase(getAllWorker.pending, (state) => {
       state.isLoading = true;
       state.message = "Worker data is loading";
@@ -33,57 +33,57 @@ const workerSlice = createSlice({
         getAllWorker.fulfilled,
       (state, actions: PayloadAction<[WorkerModel]>) => {
         state.isLoading = false;
-        state.getAllWorker = actions.payload;
-        state.message = "User data is fetched";
+        state.allWorker = actions.payload;
+        state.message = "Worker data is fetched";
       }
     );
 
     builder.addCase(getAllWorker.rejected, (state) => {
       state.isLoading = false;
-      state.getAllWorker = [];
+      state.allWorker = [];
       state.message = "Something went wrong";
     });
 
-    // For Get Single User
-    // builder.addCase(getSingleUser.pending, (state) => {
-    //   state.isLoading = true;
-    //   state.message = "User data is loading";
-    // });
+    // For Get Single Worker
+    builder.addCase(getSingleWorker.pending, (state) => {
+      state.isLoading = true;
+      state.message = "Worker data is loading";
+    });
 
-    // builder.addCase(
-    //     getSingleUser.fulfilled,
-    //   (state, actions: PayloadAction<UserModel>) => {
-    //     state.isLoading = false;
-    //     state.singleUser = actions.payload;
-    //     state.message = "User data is fetched";
-    //   }
-    // );
+    builder.addCase(
+      getSingleWorker.fulfilled,
+      (state, actions: PayloadAction<WorkerModel>) => {
+        state.isLoading = false;
+        state.singleWorker = actions.payload;
+        state.message = "Worker data is fetched";
+      }
+    );
 
-    // builder.addCase(getSingleUser.rejected, (state) => {
-    //   state.isLoading = false;
-    //   state.singleUser = {} as UserModel;
-    //   state.message = "Something went wrong";
-    // });
+    builder.addCase(getSingleWorker.rejected, (state) => {
+      state.isLoading = false;
+      state.singleWorker = {} as WorkerModel;
+      state.message = "Something went wrong";
+    });
 
-    // //For Delete One User
-    // builder.addCase(deleteOneUser.pending, (state) => {
-    //   state.isLoading = true;
-    //   state.message = "User data is loading";
-    // });
+    //For Delete One Worker
+    builder.addCase(deleteOneWorker.pending, (state) => {
+      state.isLoading = true;
+      state.message = "Worker data is loading";
+    });
 
-    // builder.addCase(
-    //     deleteOneUser.fulfilled,
-    //   (state, actions: PayloadAction<UserModel[]>) => {
-    //     state.isLoading = false;
-    //     state.allUser = [...state.allUser];
-    //     state.message = "User data is deleted";
-    //   }
-    // );
+    builder.addCase(
+      deleteOneWorker.fulfilled,
+      (state, actions: PayloadAction<WorkerModel[]>) => {
+        state.isLoading = false;
+        state.allWorker = [...state.allWorker];
+        state.message = "Worker data is deleted";
+      }
+    );
 
-    // builder.addCase(deleteOneUser.rejected, (state) => {
-    //   state.isLoading = false;
-    //   state.message = "Something went wrong";
-    // });
+    builder.addCase(deleteOneWorker.rejected, (state) => {
+      state.isLoading = false;
+      state.message = "Something went wrong";
+    });
   },
 });
 
