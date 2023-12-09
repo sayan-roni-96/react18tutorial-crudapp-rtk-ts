@@ -7,6 +7,8 @@ import UserDetails from './pages/crud_json_server/UserDetails';
 import WorkerList from './pages/crud_worker_json_server/WorkerList';
 import MenuBar from './pages/Navmenu/MenuBar';
 import WorkerDetails from './pages/crud_worker_json_server/WorkerDetails';
+import WorkerAdd from './pages/crud_worker_json_server/components/WorkerAdd';
+import WorkerEdit from './pages/crud_worker_json_server/WorkerEdit';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/userdetails/:vid" element={<UserDetails />} />
         <Route path="/workerlist" element={<WorkerList />} />
         <Route path="/workerdetails/:vid" element={<WorkerDetails />} />
+        <Route path="/workeradd" element={<WorkerAdd />} />
+        <Route path="/workeredit/:eid" element={<WorkerEdit />} />
       </Routes> }
     </div>
   );

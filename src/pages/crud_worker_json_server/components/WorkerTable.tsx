@@ -6,12 +6,14 @@ type workerTableType = {
     allWorker: WorkerModel[];
   viewBtnClick: (vid: string | number | any) => void;
   delClick: (dData: WorkerModel) => void;
+  editClick: (edData: WorkerModel) => void;
 };
 
 const WorkerTable: React.FC<workerTableType> = ({
     allWorker,
   viewBtnClick,
   delClick,
+  editClick,
 }) => {
   // const StudentTable: React.FC = ({
   //   allUser,
@@ -46,7 +48,8 @@ const WorkerTable: React.FC<workerTableType> = ({
                 <td>
                   <button onClick={() => viewBtnClick(sdata.id)}>View</button>
                   &nbsp;&nbsp;
-                  <button>Edit</button>&nbsp;&nbsp;
+                  <button onClick={() => editClick(sdata)}>Edit</button>
+                  &nbsp;&nbsp;
                   <button onClick={() => delClick(sdata)}>Delete</button>
                 </td>
               </tr>

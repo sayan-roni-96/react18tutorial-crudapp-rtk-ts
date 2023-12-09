@@ -35,8 +35,21 @@ const WorkerList: React.FC = () => {
     dispatch(getAllWorker());
   };
 
+  const editClick = (edData: WorkerModel) => {
+    // console.log("edData=>", edData);
+    navigate(`/workeredit/${edData.id}`, {
+      state: { workerDatas: edData },
+    });
+  };
+
   return (
     <div className="container mt-4">
+      <button
+        className="btn btn-primary"
+        onClick={() => navigate(`/workeradd`)}
+      >
+        Add
+      </button>
       {getAllWorker.length === 0 ? (
         <h3>No data found!</h3>
       ) : (
@@ -44,6 +57,7 @@ const WorkerList: React.FC = () => {
         allWorker={allWorker}
         viewBtnClick={viewBtnClick}
           delClick={delClick}
+          editClick={editClick}
         />
       )}
     </div>

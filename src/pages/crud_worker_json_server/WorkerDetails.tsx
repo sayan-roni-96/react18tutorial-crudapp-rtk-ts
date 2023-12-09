@@ -19,7 +19,7 @@ const WorkerDetails: React.FC = () => {
             Performance:{singleWorker.performance}<br/>
             Interest:
             <ul>
-                    {singleWorker.interest.map((interest, index) => (
+                    { singleWorker && singleWorker?.interest?.map((interest, index) => (
                         <li key={index}>{interest.label}</li>
                     ))}
                     </ul>
