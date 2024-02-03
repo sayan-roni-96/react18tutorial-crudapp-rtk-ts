@@ -1,0 +1,5 @@
+// React TS
+https://create-react-app.dev/docs/adding-typescript/
+
+// REDUX-TOOLKIT-TS
+https://redux-toolkit.js.org/usage/usage-with-typescript
